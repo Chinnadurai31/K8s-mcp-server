@@ -14,8 +14,6 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      - name: debug docker login
-        run: echo " ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}"
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -23,7 +21,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.DOCKER_PAT }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
