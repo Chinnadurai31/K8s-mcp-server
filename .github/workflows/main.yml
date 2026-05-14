@@ -22,7 +22,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PAT }}
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -32,7 +31,5 @@ jobs:
           tags: |
             chinnadurai123/k8s-mcp-server:latest
             chinnadurai123/k8s-mcp-server:v${{ github.run_number }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
 
